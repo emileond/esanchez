@@ -1,6 +1,7 @@
 import {Link} from '@tanstack/react-router'
-import React from 'react'
+import {useState} from 'react'
 import ProjectIntro from "./ProjectIntro";
+import ky from 'ky'
 
 export type CaseStudyLayoutProps = {
     title: string
@@ -21,6 +22,8 @@ export type CaseStudyLayoutProps = {
     className?: string;
     /** Optional override: provide an array of custom meta items instead of the four defaults */
     items?: Array<{ label: React.ReactNode; value: React.ReactNode; href?: string }>;
+    /** If true, the case study is protected behind a password prompt shown on initial load */
+    isProtected?: boolean;
 }
 
 /**
@@ -38,8 +41,69 @@ export function CaseStudyLayout({
                                     imageSrc,
                                     imageAlt,
                                     className = "",
-                                    items, children
+                                    items, children,
+                                    isProtected
                                 }: CaseStudyLayoutProps) {
+
+    const [password, setPassword] = useState("")
+    const [verifying, setVerifying] = useState(false)
+    const [verified, setVerified] = useState(false)
+    const [error, setError] = useState<string | null>(null)
+
+    async function handleVerify(e?: React.FormEvent | React.MouseEvent) {
+        e?.preventDefault()
+        setError(null)
+        setVerifying(true)
+        try {
+            const res: { ok: boolean } = await ky.get('/api/verify-password', {
+                searchParams: {password}
+            }).json()
+            if (res.ok) {
+                setVerified(true)
+            } else {
+                setError('Incorrect password. Please try again.')
+            }
+        } catch (err) {
+            setError('Something went wrong. Please try again.')
+        } finally {
+            setVerifying(false)
+        }
+    }
+
+    if (isProtected && !verified) {
+        return (
+            <article className="container mx-auto px-4 py-20">
+                <div className="max-w-xl mx-auto card bg-base-200 shadow-sm">
+                    <div className="card-body">
+                        <h1 className="card-title text-2xl">This case study is private</h1>
+                        <p className="text-base-content/80">Enter the password to access it.</p>
+                        <form className="form-control gap-3 mt-4" onSubmit={handleVerify}>
+                            <input
+                                type="password"
+                                className="input input-bordered"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                                aria-label="Password"
+                            />
+                            {error && <div className="text-error text-sm">{error}</div>}
+                            <div className="card-actions justify-end mt-2">
+                                <button
+                                    type="submit"
+                                    className={`btn btn-primary ${verifying ? 'btn-disabled' : ''}`}
+                                    disabled={verifying}
+                                >
+                                    {verifying ? 'Verifying…' : 'Access'}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        )
+    }
+
     return (
         <article className="container mx-auto px-4 py-20">
             <ProjectIntro title={title} description={summary}
