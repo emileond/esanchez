@@ -1,23 +1,23 @@
 import {RiQuestionLine, RiLightbulbFlashLine} from "react-icons/ri";
 
 const OverviewComponent = ({
-    title = "Overview",
-    description = "Crunchtime provides customers with significant operational, labor, and sales data. However, users lack a streamlined, integrated way to translate that data into daily decision-making. While raw metrics are available, they're not consistently contextualized, prioritized, or delivered at the right moment.",
-    problemTitle = "Problem Statement",
-    problemPoints = [
-        "In restaurants, every decision is high stakes — labour costs, stock levels, scheduling, customer experience.",
-        "Managers are often forced to make decision under pressure and based on instinct alone. This reliance leads to reactive, suboptimal decisions that impact operations and employee experience."
-    ],
-    goalTitle = "Goal",
-    goalEmphasis = {
-        pre: "To transform the manager's workflow from ",
-        emphasized: "reactive",
-        post: " to proactive."
-    },
-    goalParagraphs = [
-        "Automate data analysis, reduce decision friction, and empower managers to confidently take the best action that maximizes efficiency."
-    ]
-}: {
+                               title = "Overview",
+                               description = "Crunchtime provides customers with significant operational, labor, and sales data. However, users lack a streamlined, integrated way to translate that data into daily decision-making. While raw metrics are available, they're not consistently contextualized, prioritized, or delivered at the right moment.",
+                               problemTitle = "Problem Statement",
+                               problemPoints = [
+                                   "In restaurants, every decision is high stakes — labour costs, stock levels, scheduling, customer experience.",
+                                   "Managers are often forced to make decision under pressure and based on instinct alone. This reliance leads to reactive, suboptimal decisions that impact operations and employee experience."
+                               ],
+                               goalTitle = "Goal",
+                               goalEmphasis = {
+                                   pre: "To transform the manager's workflow from ",
+                                   emphasized: "reactive",
+                                   post: " to proactive."
+                               },
+                               goalParagraphs = [
+                                   "Automate data analysis, reduce decision friction, and empower managers to confidently take the best action that maximizes efficiency."
+                               ]
+                           }: {
     title?: string;
     description?: string;
     problemTitle?: string;
@@ -54,9 +54,9 @@ const OverviewComponent = ({
                                 {problemTitle}
                             </h3>
 
-                            <div className="space-y-4 text-base-content/90 leading-relaxed">
+                            <div className="space-y-4 text-base-content/80 leading-relaxed">
                                 {problemPoints.map((p, idx) => (
-                                    <p key={idx}>{p}</p>
+                                    <p className="text-lg" key={idx}>{p}</p>
                                 ))}
                             </div>
                         </div>
@@ -64,10 +64,11 @@ const OverviewComponent = ({
 
                     {/* Right Card: Goal (Highlighted Primary Background) */}
                     {/* Note: Using text-primary-content ensures text is readable on the primary background color */}
-                    <div className="card bg-primary text-primary-content shadow-xl rounded-xl">
+                    <div
+                        className="card shadow-xl rounded-xl">
                         <div className="card-body p-8 md:p-10">
                             {/* Icon - inherits text-primary-content color */}
-                            <RiLightbulbFlashLine className="text-5xl mb-6" aria-hidden="true"/>
+                            <RiLightbulbFlashLine className="text-primary text-5xl mb-6" aria-hidden="true"/>
 
                             <h3 className="card-title text-2xl font-bold mb-4">
                                 {goalTitle}
@@ -77,11 +78,12 @@ const OverviewComponent = ({
                                 {/* Emphasized text matching the design */}
                                 <p className="text-lg font-medium">
                                     {goalEmphasis?.pre}
-                                    <span className="font-extrabold underline decoration-2 underline-offset-4">{goalEmphasis?.emphasized}</span>
+                                    <span
+                                        className="font-extrabold underline decoration-2 underline-offset-4">{goalEmphasis?.emphasized}</span>
                                     {goalEmphasis?.post}
                                 </p>
                                 {goalParagraphs.map((p, idx) => (
-                                    <p key={idx}>{p}</p>
+                                    <p className="text-lg text-base-content/80" key={idx}>{p}</p>
                                 ))}
                             </div>
                         </div>

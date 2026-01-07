@@ -54,8 +54,8 @@ const discoveryData = [
 function FintechCaseStudyPage() {
     return (
         <CaseStudyLayout
-            isProtected
-            title="Fintech onboarding redesign"
+            // isProtected
+            title="Crunchtime's Recommended Actions"
             summary="Reduced time-to-first-value by 42% through progressive profiling and guided setup across web and mobile."
             date="2025"
             role="Product Designer"
@@ -64,7 +64,12 @@ function FintechCaseStudyPage() {
             }
             imageSrc="https://images.unsplash.com/photo-1720962158789-9389a4f399da?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         >
-            <Overview/>
+            <Overview
+                description="Crunchtime provides customers with significant operational, labor, and sales data. However, users lack a streamlined, integrated way to translate that data into daily decision-making. While raw metrics are available, they’re not consistently contextualized, prioritized, or delivered at the right moment."
+                problemPoints={[
+                    "In restaurants, every decision is high stakes—labor costs, stock levels, scheduling, customer experience. Managers are often forced to make decisions under pressure and based on instinct alone. This reliance leads to reactive, suboptimal decisions that impact operations and employee experience."
+                ]}
+            />
             <DesignProcess/>
             <Personas/>
             <Insights
