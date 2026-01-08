@@ -2,7 +2,7 @@ import {RiInformationLine, RiLightbulbLine} from "react-icons/ri";
 
 const InsightsComponent = ({
                                title = "Research & Analysis",
-                               imageUrl,
+                               image,
                                insights = []
                            }) => {
     return (
@@ -24,9 +24,9 @@ const InsightsComponent = ({
 
                     {/* Left Side: Image / Illustration */}
                     <div className="rounded-3xl overflow-hidden shadow-2xl border border-base-300 bg-base-100">
-                        {imageUrl ? (
+                        {image ? (
                             <img
-                                src={imageUrl}
+                                src={image}
                                 alt="Research visualization"
                                 className="w-full h-full object-cover min-h-[400px]"
                             />
@@ -42,7 +42,7 @@ const InsightsComponent = ({
                         {insights.map((insight, index) => (
                             <div
                                 key={index}
-                                className="card bg-base-100 shadow-sm border border-base-200/60 hover:shadow-md transition-shadow duration-300"
+                                className="card shadow-sm border border-base-200/60 hover:shadow-md transition-shadow duration-300"
                             >
                                 <div className="card-body p-6 md:p-8">
                                     <div className="flex items-start gap-4">
@@ -51,10 +51,10 @@ const InsightsComponent = ({
                                             <RiLightbulbLine className="text-xl text-primary"/>
                                         </div>
                                         <div>
-                                            <h3 className="text-xl font-bold text-base-content mb-2">
+                                            <h3 className="text-xl font-semibold text-base-content mb-2">
                                                 {insight.title}
                                             </h3>
-                                            <p className="text-base-content/70 leading-relaxed">
+                                            <p className="text-lg text-base-content/70 leading-relaxed">
                                                 {insight.description}
                                             </p>
                                         </div>

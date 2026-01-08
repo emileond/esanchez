@@ -15,7 +15,7 @@ export type CaseStudyLayoutProps = {
     /** Meta: website link; provide url and optional label */
     website?: { url: string; label?: React.ReactNode } | null;
     /** Main image src (non-zoomable) */
-    imageSrc?: string;
+    image?: string;
     /** Alt text for the image */
     imageAlt?: string;
     /** Optional extra classes for the outer section */
@@ -38,7 +38,7 @@ export function CaseStudyLayout({
                                     project,
                                     role,
                                     website,
-                                    imageSrc,
+                                    image,
                                     imageAlt,
                                     className = "",
                                     items, children,
@@ -111,13 +111,13 @@ export function CaseStudyLayout({
                           project={project}
                           role={role}
                           website={website}
-                          imageSrc={imageSrc}
+                          imageSrc={image}
                           imageAlt={imageAlt}
                           className={className}
                           items={items}/>
 
             {/* Vertically stacked child content */}
-            <div className="max-w-6xl mx-auto flex flex-col gap-10">
+            <div className="max-w-7xl mx-auto flex flex-col gap-10">
                 {children}
             </div>
 

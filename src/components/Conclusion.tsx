@@ -1,7 +1,7 @@
 import {RiLineChartLine} from "react-icons/ri";
 
 const Conclusion = ({
-                        title = "Closing thoughts\n",
+                        title = "Closing Thoughts\n",
                         children,
                     }) => {
     return (

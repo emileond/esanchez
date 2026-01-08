@@ -49,15 +49,15 @@ const defaultPains: PainPoint[] = [
 ];
 
 const PersonasComponent = ({
-    title = "Personas",
-    persona = defaultPersona,
-    goals = defaultGoals,
-    quote = "My biggest challenge isn't running the floor, it's finding the time I need to confidently analyze the data",
-    pains = defaultPains,
-}: PersonasProps) => {
+                               title = "Personas",
+                               persona = defaultPersona,
+                               goals = defaultGoals,
+                               quote = "My biggest challenge isn't running the floor, it's finding the time I need to confidently analyze the data",
+                               pains = defaultPains,
+                           }: PersonasProps) => {
     return (
         <section className="py-16 px-4">
-            <div className="container mx-auto max-w-4xl">
+            <div className="container mx-auto max-w-5xl">
                 {/* Section Header */}
                 <div className="flex flex-col items-center mb-10">
                     {/* Header Icon */}
@@ -76,7 +76,8 @@ const PersonasComponent = ({
                     <div className="card bg-base-100 shadow-md border border-base-200/50 h-full">
                         <div className="card-body flex flex-col items-center justify-center text-center p-8">
                             <div className="avatar mb-4">
-                                <div className="w-24 h-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                <div
+                                    className="w-24 h-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                     {/* Persona image */}
                                     <img
                                         src={persona.avatarUrl || "https://i.pravatar.cc/150?u=fallback"}
@@ -99,11 +100,11 @@ const PersonasComponent = ({
                         <div className="card-body p-8">
                             <div className="flex items-center gap-3 mb-4">
                                 <RiFocus2Line className="text-2xl text-primary" aria-hidden="true"/>
-                                <h3 className="text-xl font-bold text-base-content">
+                                <h3 className="text-xl font-semibold text-base-content">
                                     Goals/Needs:
                                 </h3>
                             </div>
-                            <ul className="list-disc list-outside pl-5 space-y-3 text-base-content/80 leading-snug">
+                            <ul className="list-disc list-outside pl-5 space-y-3 text-base-content/80 leading-snug text-lg">
                                 {goals.map((g, idx) => (
                                     <li key={idx}>{g}</li>
                                 ))}
@@ -118,13 +119,12 @@ const PersonasComponent = ({
                         <RiDoubleQuotesL
                             className="absolute top-4 left-4 text-primary-content/20 text-8xl pointer-events-none select-none"
                             aria-hidden="true"/>
-                        <div className="card-body p-8 flex items-center justify-center relative z-10">
-                            <figure className="mb-4">
-                                <RiDoubleQuotesL className="text-4xl text-primary-content/60" aria-hidden="true"/>
-                            </figure>
-                            <p className="text-xl italic font-medium text-center leading-relaxed">
-                                "{quote}"
-                            </p>
+                        <div className="card-body p-8">
+                            <div className="flex items-center gap-3 h-full">
+                                <p className="text-xl italic text-center text-pretty">
+                                    "{quote}"
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -133,14 +133,14 @@ const PersonasComponent = ({
                         <div className="card-body p-8">
                             <div className="flex items-center gap-3 mb-4">
                                 <RiEmotionUnhappyLine className="text-2xl text-error" aria-hidden="true"/>
-                                <h3 className="text-xl font-bold text-base-content">
+                                <h3 className="text-xl font-semibold text-base-content">
                                     Pain Points:
                                 </h3>
                             </div>
-                            <div className="space-y-4 text-base-content/80 leading-snug">
+                            <div className="space-y-4 text-base-content/80 leading-snug text-lg">
                                 {pains.map((p, idx) => (
                                     <p key={idx}>
-                                        <span className="font-bold text-base-content">{p.label}:</span> {p.text}
+                                        <span className="font-medium text-base-content">{p.label}:</span> {p.text}
                                     </p>
                                 ))}
                             </div>

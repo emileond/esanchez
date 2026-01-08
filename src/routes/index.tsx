@@ -53,10 +53,10 @@ function HeroSection() {
 function CaseStudiesSection() {
     const cases = [
         {
-            slug: 'fintech-onboarding-redesign',
-            title: 'Fintech onboarding redesign',
-            summary: 'Reduced time-to-first-value by 42% through progressive profiling and guided setup.',
-            imageUrl: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1200&auto=format&fit=crop&q=60',
+            slug: 'recommended-actions',
+            title: 'Recommended Actions',
+            summary: 'How I led the design of our platform’s first AI-driven feature, transforming complex operational data into actionable insights that improved decision-making for restaurant managers.',
+            imageUrl: '/work/recommended-actions/headr.png',
         },
         {
             slug: 'healthcare-appointment-flow',

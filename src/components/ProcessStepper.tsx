@@ -39,7 +39,7 @@ const ProcessStepperComponent = ({
 
                             {/* Step Content Card */}
                             <div
-                                className="bg-base-200/40 border border-base-300 rounded-2xl p-8 pt-10 -mt-4 min-h-[160px] flex flex-col justify-center">
+                                className="bg-base-200/40 border border-base-300 rounded-2xl p-8 pt-10 -mt-4 min-h-[160px] flex flex-col">
                                 <ul className="list-disc list-outside pl-5 space-y-3 text-base-content/80">
                                     {step.items.map((item, itemIdx) => (
                                         <li key={itemIdx} className="leading-tight">
