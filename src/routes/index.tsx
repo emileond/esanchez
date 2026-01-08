@@ -59,10 +59,10 @@ function CaseStudiesSection() {
             imageUrl: '/work/recommended-actions/headr.png',
         },
         {
-            slug: 'healthcare-appointment-flow',
-            title: 'Healthcare appointment flow',
-            summary: 'Increased booking completion by 28% with clearer steps and insurance validation.',
-            imageUrl: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1200&auto=format&fit=crop&q=60',
+            slug: 'uk-meds',
+            title: 'UK Meds MVP',
+            summary: 'How I designed a compliant digital consultation platform that bridged the gap between clinical assessment and e-commerce, creating a seamless \'diagnosis-to-delivery\' flow that drove conversion and established a scalable design system for future healthtech growth.',
+            imageUrl: '/work/uk-meds/ds.png',
         },
         {
             slug: 'b2b-dashboard-simplification',

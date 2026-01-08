@@ -13,8 +13,8 @@ interface PersonaInfo {
 }
 
 interface PainPoint {
-    label: string;
-    text: string;
+    label?: string;
+    text?: string;
 }
 
 interface PersonasProps {

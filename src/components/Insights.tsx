@@ -28,7 +28,7 @@ const InsightsComponent = ({
                             <img
                                 src={image}
                                 alt="Research visualization"
-                                className="w-full h-full object-cover min-h-[400px]"
+                                className="w-full h-full"
                             />
                         ) : (
                             <div className="w-full h-full min-h-[400px] flex items-center justify-center bg-base-300">

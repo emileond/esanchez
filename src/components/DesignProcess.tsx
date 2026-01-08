@@ -56,9 +56,9 @@ const defaultSteps: ProcessStep[] = [
 ];
 
 const DesignProcessComponent = ({
-    title = "Design Process",
-    steps = defaultSteps,
-}: DesignProcessProps) => {
+                                    title = "Design Process",
+                                    steps = defaultSteps,
+                                }: DesignProcessProps) => {
     return (
         <section className="py-16 px-4">
             <div className="container mx-auto w-full">
@@ -72,7 +72,7 @@ const DesignProcessComponent = ({
                 </div>
 
                 {/* 5-Column Grid for Cards (responsive) */}
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 items-stretch">
+                <div className="grid grid-flow-col auto-cols-fr gap-4 items-stretch">
                     {steps.map((step) => {
                         const IconComponent = step.icon;
 
@@ -81,11 +81,11 @@ const DesignProcessComponent = ({
                             // 'relative' and 'overflow-hidden' are needed for the background number
                             <div
                                 key={step.number}
-                                className="card bg-base-100 shadow-md border border-base-200 rounded-2xl relative overflow-hidden group hover:-translate-y-1 transition-all duration-300"
+                                className="min-w-[220px] card bg-base-100 shadow-md border border-base-200 rounded-2xl relative overflow-hidden group hover:-translate-y-1 transition-all duration-300"
                             >
                                 {/* Large Background Number */}
                                 <div
-                                    className="absolute -right-2 -top-5 text-[10rem] font-black text-base-200/80 select-none pointer-events-none z-0 leading-none"
+                                    className="absolute -right-2 -top-5 text-[10rem] font-black text-base-200/90 select-none pointer-events-none z-0 leading-none"
                                     aria-hidden="true"
                                 >
                                     {step.number}

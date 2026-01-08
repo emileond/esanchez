@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PortfolioUkMedsRouteImport } from './routes/portfolio.uk-meds'
 import { Route as PortfolioRecommendedActionsRouteImport } from './routes/portfolio.recommended-actions'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -23,6 +24,11 @@ const BlogRoute = BlogRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioUkMedsRoute = PortfolioUkMedsRouteImport.update({
+  id: '/portfolio/uk-meds',
+  path: '/portfolio/uk-meds',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioRecommendedActionsRoute =
@@ -48,6 +54,7 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/recommended-actions': typeof PortfolioRecommendedActionsRoute
+  '/portfolio/uk-meds': typeof PortfolioUkMedsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -55,6 +62,7 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/recommended-actions': typeof PortfolioRecommendedActionsRoute
+  '/portfolio/uk-meds': typeof PortfolioUkMedsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -63,6 +71,7 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/portfolio/recommended-actions': typeof PortfolioRecommendedActionsRoute
+  '/portfolio/uk-meds': typeof PortfolioUkMedsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -72,6 +81,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/portfolio/$slug'
     | '/portfolio/recommended-actions'
+    | '/portfolio/uk-meds'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -79,6 +89,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/portfolio/$slug'
     | '/portfolio/recommended-actions'
+    | '/portfolio/uk-meds'
   id:
     | '__root__'
     | '/'
@@ -86,6 +97,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/portfolio/$slug'
     | '/portfolio/recommended-actions'
+    | '/portfolio/uk-meds'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,6 +105,7 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRouteWithChildren
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   PortfolioRecommendedActionsRoute: typeof PortfolioRecommendedActionsRoute
+  PortfolioUkMedsRoute: typeof PortfolioUkMedsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -109,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/uk-meds': {
+      id: '/portfolio/uk-meds'
+      path: '/portfolio/uk-meds'
+      fullPath: '/portfolio/uk-meds'
+      preLoaderRoute: typeof PortfolioUkMedsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/portfolio/recommended-actions': {
@@ -150,6 +170,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRouteWithChildren,
   PortfolioSlugRoute: PortfolioSlugRoute,
   PortfolioRecommendedActionsRoute: PortfolioRecommendedActionsRoute,
+  PortfolioUkMedsRoute: PortfolioUkMedsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
