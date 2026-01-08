@@ -57,7 +57,7 @@ function CaseStudiesSection() {
             logo: '/work/recommended-actions/logo.png',
             title: 'Recommended Actions',
             summary: 'How I led the design of our platform’s first AI-driven feature, transforming complex operational data into actionable insights that improved decision-making for restaurant managers.',
-            imageUrl: '/work/recommended-actions/headr.png',
+            imageUrl: '/work/recommended-actions/cover.png',
         },
         {
             slug: 'uk-meds',

@@ -72,7 +72,7 @@ function UKMedsCaseStudyPage() {
     return (
         <CaseStudyLayout
             title="UK Meds MVP"
-            date="2025"
+            date="2020"
             role="Product Designer"
             website={
                 {url: "crunchtime.com"}

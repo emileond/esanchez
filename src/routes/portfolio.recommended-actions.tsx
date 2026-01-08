@@ -75,7 +75,7 @@ function FintechCaseStudyPage() {
             website={
                 {url: "crunchtime.com"}
             }
-            image="/work/recommended-actions/headr.png"
+            image="/work/recommended-actions/cover.png"
         >
             <Overview
                 description="Crunchtime provides customers with significant operational, labor, and sales data. However, users lack a streamlined, integrated way to translate that data into daily decision-making. While raw metrics are available, they’re not consistently contextualized, prioritized, or delivered at the right moment."
