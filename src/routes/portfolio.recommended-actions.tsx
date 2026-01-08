@@ -68,7 +68,7 @@ const discoveryData = [
 function FintechCaseStudyPage() {
     return (
         <CaseStudyLayout
-            isProtected
+            // isProtected
             title="Recommended Actions"
             date="2025"
             role="Product Designer"

@@ -5,12 +5,12 @@ export type CaseStudyCardProps = {
     imageUrl: string
     title: string
     description: string
-    tags?: string[]
+    logo?: string
     featured?: boolean
     className?: string
 }
 
-export function CaseStudyCard({to, imageUrl, title, description, tags, featured, className}: CaseStudyCardProps) {
+export function CaseStudyCard({to, imageUrl, title, description, logo, featured, className}: CaseStudyCardProps) {
     return (
         <Link
             to={to}
@@ -24,14 +24,11 @@ export function CaseStudyCard({to, imageUrl, title, description, tags, featured,
             {/* Content Section */}
             <div className={`card-body p-8 flex flex-col justify-between ${featured ? 'md:w-1/2' : 'w-full'}`}>
                 <div>
-                    {/* Tags / Category */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        {tags?.map((tag) => (
-                            <span key={tag} className="text-[10px] tracking-widest uppercase font-bold text-primary">
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
+                    {logo && (
+                        <div>
+                            <img src={logo} alt={title}/>
+                        </div>
+                    )}
 
                     <h3 className="text-2xl font-semibold mb-3 transition-colors duration-300 group-hover:text-primary">
                         {title}
