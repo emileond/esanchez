@@ -25,9 +25,8 @@ export function CaseStudyCard({to, imageUrl, title, description, logo, featured,
             <div className={`card-body p-8 flex flex-col justify-between ${featured ? 'md:w-1/2' : 'w-full'}`}>
                 <div>
                     {logo && (
-                        <div>
-                            <img src={logo} alt={title}/>
-                        </div>
+
+                        <img className="max-h-9 mb-6" src={logo} alt="Project logo"/>
                     )}
 
                     <h3 className="text-2xl font-semibold mb-3 transition-colors duration-300 group-hover:text-primary">

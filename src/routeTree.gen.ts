@@ -13,6 +13,7 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PortfolioUkMedsRouteImport } from './routes/portfolio.uk-meds'
 import { Route as PortfolioRecommendedActionsRouteImport } from './routes/portfolio.recommended-actions'
+import { Route as PortfolioOverwatchMonitoringRouteImport } from './routes/portfolio.overwatch-monitoring'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
@@ -37,6 +38,12 @@ const PortfolioRecommendedActionsRoute =
     path: '/portfolio/recommended-actions',
     getParentRoute: () => rootRouteImport,
   } as any)
+const PortfolioOverwatchMonitoringRoute =
+  PortfolioOverwatchMonitoringRouteImport.update({
+    id: '/portfolio/overwatch-monitoring',
+    path: '/portfolio/overwatch-monitoring',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
   id: '/portfolio/$slug',
   path: '/portfolio/$slug',
@@ -53,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/overwatch-monitoring': typeof PortfolioOverwatchMonitoringRoute
   '/portfolio/recommended-actions': typeof PortfolioRecommendedActionsRoute
   '/portfolio/uk-meds': typeof PortfolioUkMedsRoute
 }
@@ -61,6 +69,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/overwatch-monitoring': typeof PortfolioOverwatchMonitoringRoute
   '/portfolio/recommended-actions': typeof PortfolioRecommendedActionsRoute
   '/portfolio/uk-meds': typeof PortfolioUkMedsRoute
 }
@@ -70,6 +79,7 @@ export interface FileRoutesById {
   '/blog': typeof BlogRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
+  '/portfolio/overwatch-monitoring': typeof PortfolioOverwatchMonitoringRoute
   '/portfolio/recommended-actions': typeof PortfolioRecommendedActionsRoute
   '/portfolio/uk-meds': typeof PortfolioUkMedsRoute
 }
@@ -80,6 +90,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/blog/$slug'
     | '/portfolio/$slug'
+    | '/portfolio/overwatch-monitoring'
     | '/portfolio/recommended-actions'
     | '/portfolio/uk-meds'
   fileRoutesByTo: FileRoutesByTo
@@ -88,6 +99,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/blog/$slug'
     | '/portfolio/$slug'
+    | '/portfolio/overwatch-monitoring'
     | '/portfolio/recommended-actions'
     | '/portfolio/uk-meds'
   id:
@@ -96,6 +108,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/blog/$slug'
     | '/portfolio/$slug'
+    | '/portfolio/overwatch-monitoring'
     | '/portfolio/recommended-actions'
     | '/portfolio/uk-meds'
   fileRoutesById: FileRoutesById
@@ -104,6 +117,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRouteWithChildren
   PortfolioSlugRoute: typeof PortfolioSlugRoute
+  PortfolioOverwatchMonitoringRoute: typeof PortfolioOverwatchMonitoringRoute
   PortfolioRecommendedActionsRoute: typeof PortfolioRecommendedActionsRoute
   PortfolioUkMedsRoute: typeof PortfolioUkMedsRoute
 }
@@ -138,6 +152,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRecommendedActionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/overwatch-monitoring': {
+      id: '/portfolio/overwatch-monitoring'
+      path: '/portfolio/overwatch-monitoring'
+      fullPath: '/portfolio/overwatch-monitoring'
+      preLoaderRoute: typeof PortfolioOverwatchMonitoringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio/$slug': {
       id: '/portfolio/$slug'
       path: '/portfolio/$slug'
@@ -169,6 +190,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRouteWithChildren,
   PortfolioSlugRoute: PortfolioSlugRoute,
+  PortfolioOverwatchMonitoringRoute: PortfolioOverwatchMonitoringRoute,
   PortfolioRecommendedActionsRoute: PortfolioRecommendedActionsRoute,
   PortfolioUkMedsRoute: PortfolioUkMedsRoute,
 }

@@ -54,21 +54,24 @@ function CaseStudiesSection() {
     const cases = [
         {
             slug: 'recommended-actions',
+            logo: '/work/recommended-actions/logo.png',
             title: 'Recommended Actions',
             summary: 'How I led the design of our platform’s first AI-driven feature, transforming complex operational data into actionable insights that improved decision-making for restaurant managers.',
             imageUrl: '/work/recommended-actions/headr.png',
         },
         {
             slug: 'uk-meds',
+            logo: '/work/uk-meds/logo.png',
             title: 'UK Meds MVP',
             summary: 'How I designed a compliant digital consultation platform that bridged the gap between clinical assessment and e-commerce, creating a seamless \'diagnosis-to-delivery\' flow that drove conversion and established a scalable design system for future healthtech growth.',
             imageUrl: '/work/uk-meds/ds.png',
         },
         {
-            slug: 'b2b-dashboard-simplification',
-            title: 'B2B dashboard simplification',
-            summary: 'Cut task time in half by restructuring IA and focusing on key metrics.',
-            imageUrl: 'https://images.unsplash.com/photo-1551281044-8e8b1ae5fbd0?w=1200&auto=format&fit=crop&q=60',
+            slug: 'overwatch-monitoring',
+            logo: '/work/overwatch/logo.png',
+            title: 'Overwatch: Monitoring for Drilling Engineering',
+            summary: 'How I designed a high-density monitoring system for Motive Drilling, transforming complex multi-well data into a proactive \'at-a-glance\' dashboard that reduced response times by 35% and prevented costly operational errors.',
+            imageUrl: '/work/overwatch/ui-1.png',
         },
     ] as const
 
@@ -84,7 +87,7 @@ function CaseStudiesSection() {
                             imageUrl={c.imageUrl}
                             title={c.title}
                             description={c.summary}
-                            tags={c.tags}
+                            logo={c.logo}
                             featured={idx === 0}
                             className={idx === 0 ? 'col-span-2' : ''}
                         />
@@ -100,19 +103,17 @@ function AboutSection() {
         <section id="about" className="container mx-auto py-24 px-4">
             <h2 className="text-3xl font-semibold mb-4">About</h2>
             <div className="max-w-[1300px] mx-auto py-16 flex gap-20">
-                <div className="flex flex-col gap-8 text-base-content/80">
+                <div className="flex flex-col gap-8 text-base-content/80 text-lg">
                     <p>
-                        Over the last 8+ years I’ve helped startups and product teams
-                        ship better experiences—leading discovery, shaping strategy and
-                        designing interfaces that are accessible and delightful.
+                        Based in Mexico, I'm a maker at heart, I love bringing ideas to life.
                     </p>
                     <p>
-                        I collaborate closely with PMs and engineers, run lean
-                        experiments, and bring ideas to life with interactive prototypes.
-                        I’m comfortable owning end-to-end work or joining at any stage.
+                        I’ve helped startups and product teams ship better experiences—leading discovery, shaping
+                        strategy and designing interfaces that are accessible and delightful.
                     </p>
                     <p>
-                        When I'm not working...
+                        When I'm not building digital products, you can find me playing paddle tennis, doing mtb,
+                        chilling with my dog, or playing videogames.
                     </p>
                 </div>
                 <div className="flex-1/3 flex flex-col gap-6">

@@ -71,7 +71,6 @@ const discoveryData = [
 function UKMedsCaseStudyPage() {
     return (
         <CaseStudyLayout
-            // isProtected
             title="UK Meds MVP"
             date="2025"
             role="Product Designer"
